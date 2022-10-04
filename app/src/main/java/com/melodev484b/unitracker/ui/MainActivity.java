@@ -1,8 +1,10 @@
-package com.melodev484b.unitracker;
+package com.melodev484b.unitracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.melodev484b.unitracker.R;
 
 public class MainActivity extends AppCompatActivity {
 
