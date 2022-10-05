@@ -3,7 +3,7 @@ package com.melodev484b.unitracker.entity;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "courses")
 public class Course {
     @PrimaryKey(autoGenerate = true)
     String courseId;
