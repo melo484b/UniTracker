@@ -1,9 +1,11 @@
 package com.melodev484b.unitracker.entity;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity
 public class Course {
+    @PrimaryKey(autoGenerate = true)
     String courseId;
     String title;
     String startDate;
