@@ -14,11 +14,12 @@ public class Assessment {
     // ID of the associated Course
     private int courseId;
 
-    public Assessment(int assessmentId, String title, String type, String date) {
+    public Assessment(int assessmentId, String title, String type, String date, int courseId) {
         this.assessmentId = assessmentId;
         this.title = title;
         this.type = type;
         this.date = date;
+        this.courseId = courseId;
     }
 
     @Override
@@ -28,6 +29,7 @@ public class Assessment {
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +
                 ", date='" + date + '\'' +
+                ", courseId=" + courseId +
                 '}';
     }
 
@@ -61,5 +63,13 @@ public class Assessment {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 }
