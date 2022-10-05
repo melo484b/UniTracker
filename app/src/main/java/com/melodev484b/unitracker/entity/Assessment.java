@@ -11,6 +11,8 @@ public class Assessment {
     // Assessments may be "Performance" or "Objective"
     private String type;
     private String date;
+    // ID of the associated Course
+    private int courseId;
 
     public Assessment(int assessmentId, String title, String type, String date) {
         this.assessmentId = assessmentId;
