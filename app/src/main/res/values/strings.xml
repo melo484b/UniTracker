@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UniTracker</string>
+    <string name="term_list_button_text">Terms</string>
+    <string name="course_list_button_text">Courses</string>
+    <string name="assessment_list_button_text">Assessments</string>
+    <string name="list_item_placeholder">Item not found!</string>
 </resources>
