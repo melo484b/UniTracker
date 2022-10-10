@@ -22,6 +22,10 @@ public class Repository {
     private List<Assessment> mAllAssessments;
     private List<Course> mAllCourses;
     private List<Term> mAllTerms;
+    // Objects
+    private Assessment mAssessment;
+    private Course mCourse;
+    private Term mTerm;
 
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
@@ -33,7 +37,7 @@ public class Repository {
         mTermDao = db.termDao();
     }
 
-    // Assessment CRUD
+    // Assessment
     public void insert(Assessment assessment) {
         databaseExecutor.execute(() -> {
             mAssessmentDao.insert(assessment);
@@ -44,6 +48,19 @@ public class Repository {
         databaseExecutor.execute(() -> {
             mAssessmentDao.update(assessment);
         });
+    }
+
+    public Assessment getAssessmentById(int id) {
+        databaseExecutor.execute(() -> {
+            mAssessment = mAssessmentDao.getAssessmentById(id);
+        });
+        try {
+            Thread.sleep(750);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAssessment;
     }
 
     public List<Assessment> getmAllAssessments() {
@@ -59,7 +76,12 @@ public class Repository {
         return mAllAssessments;
     }
 
-    // Course CRUD
+    public boolean isAssessmentsEmpty() {
+        getmAllAssessments();
+        return mAllAssessments.isEmpty();
+    }
+
+    // Course
     public void insert(Course course) {
         databaseExecutor.execute(() -> {
             mCourseDao.insert(course);
@@ -70,6 +92,19 @@ public class Repository {
         databaseExecutor.execute(() -> {
             mCourseDao.update(course);
         });
+    }
+
+    public Course getCourseById(int id) {
+        databaseExecutor.execute(() -> {
+            mCourse = mCourseDao.getCourseById(id);
+        });
+        try {
+            Thread.sleep(750);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mCourse;
     }
 
     public List<Course> getmAllCourses() {
@@ -85,7 +120,12 @@ public class Repository {
         return mAllCourses;
     }
 
-    // Term CRUD
+    public boolean isCoursesEmpty() {
+        getmAllCourses();
+        return mAllCourses.isEmpty();
+    }
+
+    // Term
     public void insert(Term term) {
         databaseExecutor.execute(() -> {
             mTermDao.insert(term);
@@ -96,6 +136,19 @@ public class Repository {
         databaseExecutor.execute(() -> {
             mTermDao.update(term);
         });
+    }
+
+    public Term getTermById(int id) {
+        databaseExecutor.execute(() -> {
+            mTerm = mTermDao.getTermById(id);
+        });
+        try {
+            Thread.sleep(750);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mTerm;
     }
 
     public List<Term> getmAllTerms() {
@@ -109,6 +162,11 @@ public class Repository {
             e.printStackTrace();
         }
         return mAllTerms;
+    }
+
+    public boolean isTermsEmpty() {
+        getmAllTerms();
+        return mAllTerms.isEmpty();
     }
 
 }
