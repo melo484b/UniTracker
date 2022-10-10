@@ -1,5 +1,6 @@
 package com.melodev484b.unitracker.dao;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
@@ -10,6 +11,7 @@ import com.melodev484b.unitracker.entity.Term;
 
 import java.util.List;
 
+@Dao
 public interface TermDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Term term);
@@ -22,4 +24,7 @@ public interface TermDao {
 
     @Query("SELECT * FROM terms ORDER BY termId ASC")
     List<Term> getAllTerms();
+
+    @Query("SELECT * FROM terms WHERE termId == :termId")
+    Term getTermById(int termId);
 }
