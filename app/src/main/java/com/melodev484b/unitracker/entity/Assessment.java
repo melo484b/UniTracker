@@ -14,6 +14,9 @@ public class Assessment {
     // ID of the associated Course
     private int courseId;
 
+    public Assessment() {
+    }
+
     public Assessment(int assessmentId, String title, String type, String date, int courseId) {
         this.assessmentId = assessmentId;
         this.title = title;

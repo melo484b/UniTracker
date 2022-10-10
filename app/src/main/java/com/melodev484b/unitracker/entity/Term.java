@@ -11,6 +11,9 @@ public class Term {
     String startDate;
     String endDate;
 
+    public Term() {
+    }
+
     public Term(int termId, String title, String startDate, String endDate) {
         this.termId = termId;
         this.title = title;

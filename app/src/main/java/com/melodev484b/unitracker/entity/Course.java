@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "courses")
 public class Course {
     @PrimaryKey(autoGenerate = true)
-    String courseId;
+    int courseId;
     String title;
     String startDate;
     String endDate;
@@ -19,7 +19,10 @@ public class Course {
     // ID of the associated term
     int termId;
 
-    public Course(String courseId, String title, String startDate, String endDate, String status,
+    public Course() {
+    }
+
+    public Course(int courseId, String title, String startDate, String endDate, String status,
                   String instructor, String instructorPhone, String instructorEmail, String note,
                   int termId) {
         this.courseId = courseId;
@@ -50,11 +53,11 @@ public class Course {
                 '}';
     }
 
-    public String getCourseId() {
+    public int getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(String courseId) {
+    public void setCourseId(int courseId) {
         this.courseId = courseId;
     }
 
