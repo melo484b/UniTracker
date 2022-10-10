@@ -2,6 +2,7 @@ package com.melodev484b.unitracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,14 +17,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onTermButton(View view) {
-
+        Intent intent = new Intent(this, TermList.class);
+        startActivity(intent);
     }
 
     public void onAssessmentButton(View view) {
-
+        Intent intent = new Intent(this, AssessmentList.class);
+        startActivity(intent);
     }
 
     public void onCourseButton(View view) {
-
+        Intent intent = new Intent(this, CourseList.class);
+        startActivity(intent);
     }
 }
