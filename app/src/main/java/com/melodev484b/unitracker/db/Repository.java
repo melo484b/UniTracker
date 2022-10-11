@@ -42,12 +42,25 @@ public class Repository {
         databaseExecutor.execute(() -> {
             mAssessmentDao.insert(assessment);
         });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void update(Assessment assessment) {
         databaseExecutor.execute(() -> {
             mAssessmentDao.update(assessment);
         });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public Assessment getAssessmentById(int id) {
@@ -55,7 +68,7 @@ public class Repository {
             mAssessment = mAssessmentDao.getAssessmentById(id);
         });
         try {
-            Thread.sleep(750);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -63,12 +76,25 @@ public class Repository {
         return mAssessment;
     }
 
+    public List<Assessment> getAllAssessmentsWithCourseId(int id) {
+        databaseExecutor.execute(() -> {
+            mAllAssessments = mAssessmentDao.getAllAssessmentsWithCourseId(id);
+        });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAllAssessments;
+    }
+
     public List<Assessment> getmAllAssessments() {
         databaseExecutor.execute(() -> {
            mAllAssessments = mAssessmentDao.getAllAssessments();
         });
         try {
-            Thread.sleep(750);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -86,12 +112,24 @@ public class Repository {
         databaseExecutor.execute(() -> {
             mCourseDao.insert(course);
         });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void update(Course course) {
         databaseExecutor.execute(() -> {
             mCourseDao.update(course);
         });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public Course getCourseById(int id) {
@@ -99,7 +137,7 @@ public class Repository {
             mCourse = mCourseDao.getCourseById(id);
         });
         try {
-            Thread.sleep(750);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -107,12 +145,25 @@ public class Repository {
         return mCourse;
     }
 
+    public List<Course> getmAllCoursesWithTermId(int id) {
+        databaseExecutor.execute(() -> {
+            mAllCourses = mCourseDao.getAllCoursesWithTermId(id);
+        });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAllCourses;
+    }
+
     public List<Course> getmAllCourses() {
         databaseExecutor.execute(() -> {
             mAllCourses = mCourseDao.getAllCourses();
         });
         try {
-            Thread.sleep(750);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -130,12 +181,24 @@ public class Repository {
         databaseExecutor.execute(() -> {
             mTermDao.insert(term);
         });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void update(Term term) {
         databaseExecutor.execute(() -> {
             mTermDao.update(term);
         });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public Term getTermById(int id) {
@@ -143,7 +206,7 @@ public class Repository {
             mTerm = mTermDao.getTermById(id);
         });
         try {
-            Thread.sleep(750);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -156,7 +219,7 @@ public class Repository {
             mAllTerms = mTermDao.getAllTerms();
         });
         try {
-            Thread.sleep(750);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();

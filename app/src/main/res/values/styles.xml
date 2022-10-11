@@ -7,4 +7,9 @@
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginRight">8dp</item>
     </style>
+
+    <style name="activity_list_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>

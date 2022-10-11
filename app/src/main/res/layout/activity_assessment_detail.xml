@@ -4,6 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/detail_view_padding"
     tools:context=".ui.AssessmentDetail">
+
+
+    <TextView
+        android:id="@+id/assessment_edit_title_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="@string/title_label"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_type_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/assessment_detail_course_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="@string/course_label"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_date_label"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <TextView
+        android:id="@+id/assessment_detail_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="@string/date_label"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_course_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_type_label" />
+
+    <TextView
+        android:id="@+id/assessment_detail_type_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="@string/type_label"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_date_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title_label" />
+
+    <TextView
+        android:id="@+id/assessment_detail_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.719"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/assessment_detail_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_title" />
+
+    <TextView
+        android:id="@+id/assessment_detail_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_date"
+        app:layout_constraintVertical_bias="0.059" />
+
+    <TextView
+        android:id="@+id/assessment_detail_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/detailed_margin"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_course"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_type" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

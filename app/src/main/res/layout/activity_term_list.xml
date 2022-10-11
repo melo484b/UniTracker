@@ -10,5 +10,23 @@
         android:id="@+id/term_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/recycler_margin" />
+        android:layout_margin="@dimen/recycler_margin" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/term_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/add_button_description"
+        android:onClick="onTermActionButton"
+        app:layout_constraintBottom_toBottomOf="@+id/term_recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.977"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_menu_add"
+        tools:ignore="RedundantDescriptionCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

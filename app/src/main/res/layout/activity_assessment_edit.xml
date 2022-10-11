@@ -11,11 +11,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/list_item_margin"
+        android:padding="@dimen/edit_padding"
         android:text="@string/title_label"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_edit_type_label"
         app:layout_constraintEnd_toStartOf="@+id/assessment_edit_title"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -26,11 +27,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/list_item_margin"
         android:layout_marginTop="48dp"
+        android:padding="@dimen/edit_padding"
         android:text="@string/type_label"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_edit_date_label"
         app:layout_constraintEnd_toStartOf="@+id/assessment_edit_type"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title_label"
         app:layout_constraintVertical_bias="0.038" />
@@ -41,11 +43,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/list_item_margin"
         android:layout_marginTop="52dp"
+        android:padding="@dimen/edit_padding"
         android:text="@string/date_label"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_edit_course_label"
         app:layout_constraintEnd_toStartOf="@+id/assessment_edit_date"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/assessment_edit_type_label"
         app:layout_constraintVertical_bias="0.042" />
@@ -57,25 +60,29 @@
         android:layout_margin="@dimen/list_item_margin"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="68dp"
+        android:padding="@dimen/edit_padding"
         android:text="@string/course_label"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/assessment_edit_course"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_date_label"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_date_label" />
 
     <EditText
         android:id="@+id/assessment_edit_title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/list_item_margin"
         android:ems="10"
         android:hint="@string/title_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:padding="@dimen/edit_padding"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_edit_type"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_title_label"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -88,7 +95,11 @@
         android:hint="@string/type_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:padding="@dimen/edit_padding"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_edit_date"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_type_label"
         app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title" />
 
     <EditText
@@ -101,7 +112,11 @@
         android:hint="@string/date_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:padding="@dimen/edit_padding"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_edit_course"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_date_label"
         app:layout_constraintTop_toBottomOf="@+id/assessment_edit_type" />
 
     <EditText
@@ -114,22 +129,26 @@
         android:hint="@string/course_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:padding="@dimen/edit_padding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_date"
-        app:layout_constraintVertical_bias="0.004" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_course_label"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_date" />
 
-    <Button
-        android:id="@+id/assessment_edit_save_button"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/assessment_edit_floating_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onAssessmentEditSaveButton"
-        android:text="@string/save_button_text"
+        android:clickable="true"
+        android:contentDescription="@string/save_button_description"
+        android:onClick="onAssessmentEditFloatingButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

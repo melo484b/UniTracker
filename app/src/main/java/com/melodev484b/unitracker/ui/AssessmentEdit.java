@@ -2,6 +2,7 @@ package com.melodev484b.unitracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -20,32 +21,33 @@ public class AssessmentEdit extends AppCompatActivity {
     String type;
     String date;
     int courseId;
+    String courseTitle;
     Repository repo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assessment_edit);
+        repo = new Repository(getApplication());
         editTitle = findViewById(R.id.assessment_edit_title);
         editType = findViewById(R.id.assessment_edit_type);
         editDate = findViewById(R.id.assessment_edit_date);
         editCourse = findViewById(R.id.assessment_edit_course);
-        assessmentId = getIntent().getIntExtra("assessmentId", -1);
+        assessmentId = getIntent().getIntExtra("assessment_id", -1);
         title = getIntent().getStringExtra("title");
         type = getIntent().getStringExtra("type");
         date = getIntent().getStringExtra("date");
-        courseId = getIntent().getIntExtra("courseId", -1);
+        courseId = getIntent().getIntExtra("course_id", -1);
+        courseTitle = getIntent().getStringExtra("course_title");
         if (assessmentId != -1) {
             editTitle.setText(title);
             editType.setText(type);
             editDate.setText(date);
-            editCourse.setText(repo.getCourseById(courseId).getTitle());
+            editCourse.setText(courseTitle);
         }
-        repo = new Repository(getApplication());
     }
 
-    // Select courseId from course
-    public void onAssessmentEditSaveButton(View view) {
+    public void onAssessmentEditFloatingButton(View view) {
         Assessment assessment;
         int newId;
         if (assessmentId == -1) {
@@ -62,5 +64,7 @@ public class AssessmentEdit extends AppCompatActivity {
             assessment = new Assessment(assessmentId, editTitle.getText().toString(), editType.getText().toString(), editDate.getText().toString(), courseId);
             repo.update(assessment);
         }
+        Intent intent = new Intent(this, AssessmentList.class);
+        startActivity(intent);
     }
 }

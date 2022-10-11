@@ -1,5 +1,6 @@
 package com.melodev484b.unitracker.ui;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,9 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.melodev484b.unitracker.R;
+import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Assessment;
 
 import java.util.List;
+
+
 
 public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.AssessmentViewHolder> {
     class AssessmentViewHolder extends RecyclerView.ViewHolder {
@@ -24,8 +28,8 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
             itemView.setOnClickListener(view -> {
                 int position = getAdapterPosition();
                 final Assessment current = mAssessments.get(position);
-                Intent intent = new Intent(context, AssessmentList.class);
-                intent.putExtra("id", current.getAssessmentId());
+                Intent intent = new Intent(context, AssessmentDetail.class);
+                intent.putExtra("assessment_id", current.getAssessmentId());
                 intent.putExtra("title", current.getTitle());
                 intent.putExtra("type", current.getType());
                 intent.putExtra("date", current.getDate());

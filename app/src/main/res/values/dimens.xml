@@ -4,4 +4,6 @@
     <dimen name="list_item_margin">8dp</dimen>
     <dimen name="recycler_margin">8dp</dimen>
     <dimen name="detail_view_padding">16dp</dimen>
+    <dimen name="detailed_margin">8dp</dimen>
+    <dimen name="edit_padding">8dp</dimen>
 </resources>
