@@ -71,7 +71,7 @@ public class CourseEdit extends AppCompatActivity {
         }
     }
 
-    public void onCourseEditFloatingButton(View view) {
+    public void onSaveCourse(View view) {
         Course course;
         int newId;
         if (courseId == -1) {
@@ -85,17 +85,17 @@ public class CourseEdit extends AppCompatActivity {
             course = new Course(newId, editTitle.getText().toString(), editStart.getText().toString(),
                     editEnd.getText().toString(), editStatus.getText().toString(),
                     editInstructor.getText().toString(), editPhone.getText().toString(),
-                    editEmail.getText().toString(), editNote.getText().toString(), 1);
+                    editEmail.getText().toString(), editNote.getText().toString(), termId);
             repo.insert(course);
         }
         else {
             course = new Course(courseId, editTitle.getText().toString(), editStart.getText().toString(),
                     editEnd.getText().toString(), editStatus.getText().toString(),
                     editInstructor.getText().toString(), editPhone.getText().toString(),
-                    editEmail.getText().toString(), editNote.getText().toString(), 1);
+                    editEmail.getText().toString(), editNote.getText().toString(), termId);
             repo.update(course);
         }
-        Intent intent = new Intent(this, CourseList.class);
+        Intent intent = new Intent(this, TermList.class);
         startActivity(intent);
     }
 }

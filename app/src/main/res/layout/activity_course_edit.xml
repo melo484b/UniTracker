@@ -234,12 +234,12 @@
         app:layout_constraintTop_toBottomOf="@+id/course_edit_phone" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/course_edit_floating_button"
+        android:id="@+id/course_edit_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="@string/save_button_description"
-        android:onClick="onCourseEditFloatingButton"
+        android:onClick="onSaveCourse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

@@ -12,19 +12,4 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/recycler_margin" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/course_action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:contentDescription="@string/add_button_description"
-        android:onClick="onCourseActionButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.988"
-        app:srcCompat="@android:drawable/ic_menu_add"
-        tools:ignore="RedundantDescriptionCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

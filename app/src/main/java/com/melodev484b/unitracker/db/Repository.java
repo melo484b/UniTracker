@@ -63,6 +63,18 @@ public class Repository {
         }
     }
 
+    public void deleteAssessment(int assessmentId) {
+        databaseExecutor.execute(() -> {
+            mAssessmentDao.deleteById(assessmentId);
+        });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Assessment getAssessmentById(int id) {
         databaseExecutor.execute(() -> {
             mAssessment = mAssessmentDao.getAssessmentById(id);
@@ -132,6 +144,18 @@ public class Repository {
         }
     }
 
+    public void deleteCourse(int courseId) {
+        databaseExecutor.execute(() -> {
+            mCourseDao.deleteById(courseId);
+        });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public Course getCourseById(int id) {
         databaseExecutor.execute(() -> {
             mCourse = mCourseDao.getCourseById(id);
@@ -192,6 +216,18 @@ public class Repository {
     public void update(Term term) {
         databaseExecutor.execute(() -> {
             mTermDao.update(term);
+        });
+        try {
+            Thread.sleep(1000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteTerm(int termId) {
+        databaseExecutor.execute(() -> {
+            mTermDao.deleteById(termId);
         });
         try {
             Thread.sleep(1000);

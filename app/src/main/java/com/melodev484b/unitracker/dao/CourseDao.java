@@ -23,6 +23,9 @@ public interface CourseDao {
     @Delete
     void delete(Course course);
 
+    @Query("DELETE FROM courses WHERE courseId == :courseId")
+    void deleteById(int courseId);
+
     @Query("SELECT * FROM courses ORDER BY courseId ASC")
     List<Course> getAllCourses();
 

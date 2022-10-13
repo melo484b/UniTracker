@@ -2,7 +2,9 @@ package com.melodev484b.unitracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.melodev484b.unitracker.R;
@@ -21,6 +23,9 @@ public class AssessmentDetail extends AppCompatActivity {
     String date;
     int courseId;
     Repository repo;
+    final String SUCCESS_MESSAGE = "Assessment removed";
+    final String FAILURE_MESSAGE = "Failed to remove Assessment";
+    String displayMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,5 +47,15 @@ public class AssessmentDetail extends AppCompatActivity {
             dateText.setText(date);
             courseText.setText(String.valueOf(courseId));
         }
+    }
+
+    public void onDeleteAssessment(View view) {
+
+        if (assessmentId != -1) {
+            repo.deleteAssessment(assessmentId);
+            Intent intent = new Intent(this, AssessmentList.class);
+            startActivity(intent);
+        }
+
     }
 }

@@ -1,13 +1,17 @@
 package com.melodev484b.unitracker.ui;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Assessment;
@@ -35,6 +39,9 @@ public class CourseDetail extends AppCompatActivity {
     String email;
     String note;
     Repository repo;
+    final String SUCCESS_MESSAGE = "Course removed.";
+    final String FAILURE_MESSAGE = "Failed to remove Course";
+    String displayMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +89,22 @@ public class CourseDetail extends AppCompatActivity {
         adapter.setAssessments(assessments);
     }
 
-    public void onToggleRecyclerView(View view) {
-        if (recyclerView.getVisibility() == View.VISIBLE) {
-            recyclerView.setVisibility(View.GONE);
-        } else {
-            recyclerView.setVisibility(View.VISIBLE);
+    public void onDeleteCourse(View view) {
+        Snackbar message = Snackbar.make(view, "", LENGTH_SHORT);
+        if (courseId != -1) {
+            repo.deleteCourse(courseId);
+            Intent intent = new Intent(this, CourseList.class);
+            startActivity(intent);
         }
+        else {
+            displayMessage = FAILURE_MESSAGE;
+            message.show();
+        }
+    }
+
+    public void onAddAssessment(View view) {
+        Intent intent = new Intent(this, AssessmentEdit.class);
+        intent.putExtra("course_id", courseId);
+        startActivity(intent);
     }
 }

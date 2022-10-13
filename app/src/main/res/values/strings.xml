@@ -31,4 +31,6 @@
     <string name="note_hint">Notes go here</string>
     <string name="save_button_description">save button</string>
     <string name="toggle_recycler_view_description">toggle assessment view</string>
+    <string name="courses_label">Courses</string>
+    <string name="assessments_label">Assessments</string>
 </resources>

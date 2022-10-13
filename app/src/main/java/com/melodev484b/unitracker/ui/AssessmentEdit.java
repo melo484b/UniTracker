@@ -15,13 +15,11 @@ public class AssessmentEdit extends AppCompatActivity {
     EditText editTitle;
     EditText editType;
     EditText editDate;
-    EditText editCourse;
     int assessmentId;
     String title;
     String type;
     String date;
     int courseId;
-    String courseTitle;
     Repository repo;
 
     @Override
@@ -32,22 +30,19 @@ public class AssessmentEdit extends AppCompatActivity {
         editTitle = findViewById(R.id.assessment_edit_title);
         editType = findViewById(R.id.assessment_edit_type);
         editDate = findViewById(R.id.assessment_edit_date);
-        editCourse = findViewById(R.id.assessment_edit_course);
         assessmentId = getIntent().getIntExtra("assessment_id", -1);
         title = getIntent().getStringExtra("title");
         type = getIntent().getStringExtra("type");
         date = getIntent().getStringExtra("date");
         courseId = getIntent().getIntExtra("course_id", -1);
-        courseTitle = getIntent().getStringExtra("course_title");
         if (assessmentId != -1) {
             editTitle.setText(title);
             editType.setText(type);
             editDate.setText(date);
-            editCourse.setText(courseTitle);
         }
     }
 
-    public void onAssessmentEditFloatingButton(View view) {
+    public void onSaveAssessment(View view) {
         Assessment assessment;
         int newId;
         if (assessmentId == -1) {
@@ -57,7 +52,7 @@ public class AssessmentEdit extends AppCompatActivity {
             else {
                 newId = repo.getmAllAssessments().get(repo.getmAllAssessments().size() -1).getAssessmentId() + 1;
             }
-            assessment = new Assessment(newId, editTitle.getText().toString(), editType.getText().toString(), editDate.getText().toString(), 999);
+            assessment = new Assessment(newId, editTitle.getText().toString(), editType.getText().toString(), editDate.getText().toString(), courseId);
             repo.insert(assessment);
         }
         else {

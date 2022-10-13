@@ -23,6 +23,7 @@
             android:name=".ui.AssessmentEdit"
             android:exported="false" />
         <activity
+            android:label="Terms"
             android:name=".ui.TermList"
             android:exported="false" />
         <activity
@@ -32,12 +33,16 @@
             android:name=".ui.AssessmentList"
             android:exported="false" />
         <activity
+            android:label="Term Details"
             android:name=".ui.TermDetail"
             android:exported="false" />
         <activity
+            android:label="Course Details"
             android:name=".ui.CourseDetail"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
+            android:label="Assessment Details"
             android:name=".ui.AssessmentDetail"
             android:exported="false" />
         <activity

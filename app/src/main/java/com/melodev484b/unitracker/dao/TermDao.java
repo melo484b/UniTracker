@@ -22,6 +22,9 @@ public interface TermDao {
     @Delete
     void delete(Term term);
 
+    @Query("DELETE FROM terms WHERE termId == :termId")
+    void deleteById(int termId);
+
     @Query("SELECT * FROM terms ORDER BY termId ASC")
     List<Term> getAllTerms();
 
