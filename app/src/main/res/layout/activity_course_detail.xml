@@ -26,10 +26,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detailed_margin"
+        android:layout_marginStart="4dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_start_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_title"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -41,8 +41,7 @@
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_status_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_end"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_start_label" />
 
@@ -53,8 +52,7 @@
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_instructor_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_status"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_end_label" />
 
@@ -65,8 +63,7 @@
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_phone_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_instructor"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_status_label" />
 
@@ -77,8 +74,7 @@
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_email_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_phone"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_instructor_label" />
 
@@ -89,8 +85,7 @@
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_note_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_email"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_phone_label" />
 
@@ -101,8 +96,7 @@
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/assessments_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_note"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_email_label" />
 
@@ -114,8 +108,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_instructor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_status_label"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_end" />
 
     <TextView
@@ -126,8 +120,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_start"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_title_label"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
@@ -139,8 +133,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_end"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_start_label"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_title" />
 
     <TextView
@@ -151,8 +145,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_status"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_end_label"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_start" />
 
     <TextView
@@ -163,8 +157,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_phone_label"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_instructor" />
 
     <TextView
@@ -175,8 +169,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_note"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_email_label"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_phone" />
 
     <TextView
@@ -187,8 +181,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/assessments_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_note_label"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_email" />
 
     <TextView
@@ -199,8 +193,8 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_phone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/course_detail_instructor_label"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_status" />
 
     <TextView
@@ -210,8 +204,7 @@
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_end_label"
-        app:layout_constraintEnd_toStartOf="@+id/course_detail_start"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_title_label" />
 
@@ -264,5 +257,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.442" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="90dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

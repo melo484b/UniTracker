@@ -16,16 +16,12 @@ public class AssessmentDetail extends AppCompatActivity {
     TextView titleText;
     TextView typeText;
     TextView dateText;
-    TextView courseText;
     int assessmentId;
     String title;
     String type;
     String date;
     int courseId;
     Repository repo;
-    final String SUCCESS_MESSAGE = "Assessment removed";
-    final String FAILURE_MESSAGE = "Failed to remove Assessment";
-    String displayMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +31,6 @@ public class AssessmentDetail extends AppCompatActivity {
         titleText = findViewById(R.id.assessment_detail_title);
         typeText = findViewById(R.id.assessment_detail_type);
         dateText = findViewById(R.id.assessment_detail_date);
-        courseText = findViewById(R.id.assessment_detail_course);
         assessmentId = getIntent().getIntExtra("assessment_id", -1);
         title = getIntent().getStringExtra("title");
         type = getIntent().getStringExtra("type");
@@ -45,7 +40,6 @@ public class AssessmentDetail extends AppCompatActivity {
             titleText.setText(title);
             typeText.setText(type);
             dateText.setText(date);
-            courseText.setText(String.valueOf(courseId));
         }
     }
 

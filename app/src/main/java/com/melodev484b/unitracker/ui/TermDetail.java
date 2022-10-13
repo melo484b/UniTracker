@@ -30,9 +30,7 @@ public class TermDetail extends AppCompatActivity {
     String end;
     Repository repo;
     List<Course> courses;
-    final String SUCCESS_MESSAGE = "Term removed";
     final String FAILURE_MESSAGE = "Remove related courses first!";
-    String displayMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +76,6 @@ public class TermDetail extends AppCompatActivity {
     }
 
     public void onDeleteTerm(View view) {
-        Snackbar message = Snackbar.make(view, "", LENGTH_SHORT);
         if (courses.isEmpty()) {
             if (termId != -1) {
                 repo.deleteTerm(termId);
@@ -87,7 +84,7 @@ public class TermDetail extends AppCompatActivity {
             startActivity(intent);
         }
         else {
-            displayMessage = FAILURE_MESSAGE;
+            Snackbar message = Snackbar.make(view, FAILURE_MESSAGE, LENGTH_SHORT);
             message.show();
         }
     }

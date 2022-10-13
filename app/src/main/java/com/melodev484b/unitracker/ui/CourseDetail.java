@@ -39,9 +39,6 @@ public class CourseDetail extends AppCompatActivity {
     String email;
     String note;
     Repository repo;
-    final String SUCCESS_MESSAGE = "Course removed.";
-    final String FAILURE_MESSAGE = "Failed to remove Course";
-    String displayMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,10 +92,6 @@ public class CourseDetail extends AppCompatActivity {
             repo.deleteCourse(courseId);
             Intent intent = new Intent(this, CourseList.class);
             startActivity(intent);
-        }
-        else {
-            displayMessage = FAILURE_MESSAGE;
-            message.show();
         }
     }
 

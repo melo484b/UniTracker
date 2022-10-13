@@ -14,26 +14,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detailed_margin"
         android:text="@string/title_label"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_type_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_date_label"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/assessment_detail_course_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="@string/course_label"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.011"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_date_label"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_type_label"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/assessment_detail_date_label"
@@ -41,12 +28,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detailed_margin"
         android:text="@string/date_label"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_course_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_type_label" />
+        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title_label" />
 
     <TextView
         android:id="@+id/assessment_detail_type_label"
@@ -54,12 +41,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detailed_margin"
         android:text="@string/type_label"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_date_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.038"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_edit_title_label"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title_label" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/assessment_detail_title"
@@ -67,11 +55,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_type"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.719"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_title_label"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_type"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/assessment_detail_type"
@@ -79,24 +70,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_date"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.739"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_title" />
-
-    <TextView
-        android:id="@+id/assessment_detail_course"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.739"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_date"
-        app:layout_constraintVertical_bias="0.059" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/assessment_detail_date"
@@ -104,11 +84,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/detailed_margin"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/assessment_detail_course"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.739"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_type" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/assessment_detail_type_label"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_detail_title" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/deleteAssessment"
@@ -123,5 +105,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_delete" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="83dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
