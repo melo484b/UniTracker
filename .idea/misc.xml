@@ -9,10 +9,13 @@
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_course_detail.xml" value="0.33" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_course_edit.xml" value="0.33" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_course_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_date_time_picker.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_main.xml" value="0.30434782608695654" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_term_detail.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_term_edit.xml" value="0.33" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/activity_term_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/fragment_date_fragment.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/fragment_date_picker.xml" value="0.29981884057971014" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/layout/list_item.xml" value="0.33" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/menu/menu_assessment_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Mango/Documents/GitHub/UniTracker/app/src/main/res/menu/menu_course_list.xml" value="0.2701388888888889" />

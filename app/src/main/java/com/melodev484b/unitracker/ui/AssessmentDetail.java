@@ -13,14 +13,9 @@ import com.melodev484b.unitracker.entity.Course;
 
 public class AssessmentDetail extends AppCompatActivity {
 
-    TextView titleText;
-    TextView typeText;
-    TextView dateText;
-    int assessmentId;
-    String title;
-    String type;
-    String date;
-    int courseId;
+    TextView titleText, typeText, dateText;
+    int assessmentId, courseId;
+    String title, type, date;
     Repository repo;
 
     @Override

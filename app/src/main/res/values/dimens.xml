@@ -6,4 +6,6 @@
     <dimen name="detail_view_padding">16dp</dimen>
     <dimen name="detailed_margin">8dp</dimen>
     <dimen name="edit_padding">8dp</dimen>
+    <dimen name="picker_padding">2dp</dimen>
+    <dimen name="picker_margin">4dp</dimen>
 </resources>

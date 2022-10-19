@@ -20,24 +20,10 @@ import java.util.List;
 
 public class CourseDetail extends AppCompatActivity {
 
-    TextView titleText;
-    TextView startText;
-    TextView endText;
-    TextView statusText;
-    TextView instructorText;
-    TextView phoneText;
-    TextView emailText;
-    TextView noteText;
+    TextView titleText, startText, endText, statusText, instructorText, phoneText, emailText, noteText;
     RecyclerView recyclerView;
     int courseId;
-    String title;
-    String start;
-    String end;
-    String status;
-    String instructor;
-    String phone;
-    String email;
-    String note;
+    String title, start, end, status, instructor, phone, email, note;
     Repository repo;
 
     @Override

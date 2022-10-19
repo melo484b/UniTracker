@@ -21,13 +21,9 @@ import com.melodev484b.unitracker.entity.Course;
 import java.util.List;
 
 public class TermDetail extends AppCompatActivity {
-    TextView titleText;
-    TextView startText;
-    TextView endText;
+    TextView titleText, startText, endText;
     int termId;
-    String title;
-    String start;
-    String end;
+    String title, start, end;
     Repository repo;
     List<Course> courses;
     final String FAILURE_MESSAGE = "Remove related courses first!";

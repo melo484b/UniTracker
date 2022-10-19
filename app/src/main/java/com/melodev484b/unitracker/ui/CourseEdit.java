@@ -1,9 +1,8 @@
 package com.melodev484b.unitracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,27 +11,17 @@ import android.widget.EditText;
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Course;
+import com.melodev484b.unitracker.util.ChronoManager;
+
+import java.util.Calendar;
 
 public class CourseEdit extends AppCompatActivity {
-    EditText editTitle;
-    EditText editStart;
-    EditText editEnd;
-    EditText editStatus;
-    EditText editInstructor;
-    EditText editPhone;
-    EditText editEmail;
-    EditText editNote;
-    int courseId;
-    String title;
-    String start;
-    String end;
-    String status;
-    String instructor;
-    String phone;
-    String email;
-    String note;
-    int termId;
+    EditText editTitle, editStart, editEnd, editStatus, editInstructor, editPhone, editEmail, editNote;
+    String title, start, end, status, instructor, phone, email, note;
+    int termId, courseId;
     Repository repo;
+    private DatePickerDialog datePickerDialog;
+    private boolean settingStartDate = true;
 
 
     @Override
@@ -69,6 +58,26 @@ public class CourseEdit extends AppCompatActivity {
             editEmail.setText(email);
             editNote.setText(note);
         }
+        initDatePicker();
+    }
+
+    private void initDatePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
+            month = month++;
+            String date = ChronoManager.date(year, month, day);
+            if (settingStartDate) {
+                editStart.setText(date);
+            } else {
+                editEnd.setText(date);
+            }
+        };
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        datePickerDialog = new DatePickerDialog(this, dateSetListener, year, month, day);
     }
 
     public void onSaveCourse(View view) {
@@ -97,5 +106,15 @@ public class CourseEdit extends AppCompatActivity {
         }
         Intent intent = new Intent(this, TermList.class);
         startActivity(intent);
+    }
+
+    public void onSelectStart(View view) {
+        settingStartDate = true;
+        datePickerDialog.show();
+    }
+
+    public void onSelectEnd(View view) {
+        settingStartDate = false;
+        datePickerDialog.show();
     }
 }

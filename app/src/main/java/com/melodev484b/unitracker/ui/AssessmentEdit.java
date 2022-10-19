@@ -1,26 +1,30 @@
 package com.melodev484b.unitracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Assessment;
+import com.melodev484b.unitracker.util.ChronoManager;
+
+import java.time.LocalDate;
+import java.util.Calendar;
 
 public class AssessmentEdit extends AppCompatActivity {
-    EditText editTitle;
-    EditText editType;
-    EditText editDate;
-    int assessmentId;
-    String title;
-    String type;
-    String date;
-    int courseId;
+    EditText editTitle, editType, editDate;
+    int assessmentId, courseId;
+    String title, type, date;
     Repository repo;
+    private DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,22 @@ public class AssessmentEdit extends AppCompatActivity {
             editType.setText(type);
             editDate.setText(date);
         }
+        initDatePicker();
+    }
+
+    private void initDatePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
+            month = month++;
+            String date = ChronoManager.date(year, month, day);
+            editDate.setText(date);
+        };
+
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        datePickerDialog = new DatePickerDialog(this, dateSetListener, year, month, day);
     }
 
     public void onSaveAssessment(View view) {
@@ -61,5 +81,9 @@ public class AssessmentEdit extends AppCompatActivity {
         }
         Intent intent = new Intent(this, AssessmentList.class);
         startActivity(intent);
+    }
+
+    public void onSelectDate(View view) {
+        datePickerDialog.show();
     }
 }
