@@ -55,7 +55,6 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
         return new AssessmentViewHolder(itemView);
     }
 
-    // Put data into the textView
     @Override
     public void onBindViewHolder(@NonNull AssessmentAdapter.AssessmentViewHolder holder, int position) {
         if (mAssessments != null) {

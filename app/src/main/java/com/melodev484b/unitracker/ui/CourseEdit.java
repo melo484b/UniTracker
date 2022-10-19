@@ -90,7 +90,6 @@ public class CourseEdit extends AppCompatActivity {
             else {
                 newId = repo.getmAllCourses().get(repo.getmAllCourses().size() -1).getCourseId() + 1;
             }
-            // Get term ID
             course = new Course(newId, editTitle.getText().toString(), editStart.getText().toString(),
                     editEnd.getText().toString(), editStatus.getText().toString(),
                     editInstructor.getText().toString(), editPhone.getText().toString(),

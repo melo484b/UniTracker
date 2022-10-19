@@ -50,7 +50,6 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
         return new TermViewHolder(itemView);
     }
 
-    // Put data into the textView
     @Override
     public void onBindViewHolder(@NonNull TermAdapter.TermViewHolder holder, int position) {
         if (mTerms != null) {

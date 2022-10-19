@@ -31,7 +31,6 @@ public class CourseList extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter.setCourses(courses);
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -60,8 +60,6 @@ public class CourseDetail extends AppCompatActivity {
             noteText.setText(note);
         }
 
-
-        // Set up RecyclerView
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         recyclerView = findViewById(R.id.course_detail_recycler);
         Repository repo = new Repository(getApplication());
