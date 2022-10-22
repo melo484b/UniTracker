@@ -8,14 +8,15 @@
     tools:context=".ui.TermDetail">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deleteTerm"
+        android:id="@+id/delete_term"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/delete_term_description"
         android:onClick="onDeleteTerm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addCourse"
+        app:layout_constraintEnd_toStartOf="@+id/add_course"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,15 +114,16 @@
         app:layout_constraintVertical_bias="0.469" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addCourse"
+        android:id="@+id/add_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/add_course_description"
         android:onClick="onAddCourse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/deleteTerm"
+        app:layout_constraintStart_toEndOf="@+id/delete_term"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_input_add" />
@@ -142,8 +144,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/course_detail_recycler"
-        android:layout_width="377dp"
-        android:layout_height="436dp"
+        android:layout_width="398dp"
+        android:layout_height="489dp"
         android:padding="@dimen/recycler_margin"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"

@@ -15,12 +15,12 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/term_action_button"
+        android:id="@+id/add_term"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:contentDescription="@string/add_button_description"
-        android:onClick="onTermActionButton"
+        android:onClick="onAddTerm"
         app:layout_constraintBottom_toBottomOf="@+id/term_recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"

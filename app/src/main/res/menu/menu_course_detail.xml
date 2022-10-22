@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/share_course_note"
+        android:orderInCategory="100"
+        android:title="@string/menu_share_note" />
+    <item
+        android:id="@+id/set_course_reminder"
+        android:orderInCategory="100"
+        android:title="@string/menu_set_reminder" />
+</menu>

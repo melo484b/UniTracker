@@ -2,20 +2,30 @@ package com.melodev484b.unitracker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Course;
+import com.melodev484b.unitracker.scheduler.UniTrackerReceiver;
+import com.melodev484b.unitracker.util.ChronoManager;
+
+import java.time.ZoneId;
 
 public class AssessmentDetail extends AppCompatActivity {
 
     TextView titleText, typeText, dateText;
     int assessmentId, courseId;
     String title, type, date;
+    final String ALERT_MESSAGE = "Your assessment is scheduled for today!";
     Repository repo;
 
     @Override
@@ -36,6 +46,34 @@ public class AssessmentDetail extends AppCompatActivity {
             typeText.setText(type);
             dateText.setText(date);
         }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_assessment_detail, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.set_assessment_reminder:
+                setReminder();
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setReminder() {
+        Long trigger = ChronoManager.dateInMilliseconds(date);
+        Intent intent = new Intent(AssessmentDetail.this, UniTrackerReceiver.class);
+        intent.putExtra("key", ALERT_MESSAGE);
+        PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetail.this,
+                MainActivity.getIncrementedAlertNumber(), intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
     }
 
     public void onDeleteAssessment(View view) {

@@ -46,9 +46,4 @@ public class AssessmentList extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void onAssessmentActionButton(View view) {
-        Intent intent = new Intent(this, AssessmentEdit.class);
-        startActivity(intent);
-    }
 }

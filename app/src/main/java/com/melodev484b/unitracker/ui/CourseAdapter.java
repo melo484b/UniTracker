@@ -16,6 +16,11 @@ import com.melodev484b.unitracker.entity.Course;
 import java.util.List;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
+
+    private List<Course> mCourses;
+    private final Context context;
+    private final LayoutInflater mInflator;
+
     class CourseViewHolder extends RecyclerView.ViewHolder {
         private final TextView courseItemView;
         private CourseViewHolder(View itemView) {
@@ -39,10 +44,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             });
         }
     }
-
-    private List<Course> mCourses;
-    private final Context context;
-    private final LayoutInflater mInflator;
 
     public CourseAdapter(Context context) {
         mInflator = LayoutInflater.from(context);

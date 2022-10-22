@@ -10,6 +10,8 @@ import com.melodev484b.unitracker.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static int alertNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,5 +31,10 @@ public class MainActivity extends AppCompatActivity {
     public void onCourseButton(View view) {
         Intent intent = new Intent(this, CourseList.class);
         startActivity(intent);
+    }
+
+    public static int getIncrementedAlertNumber() {
+        alertNumber++;
+        return alertNumber;
     }
 }

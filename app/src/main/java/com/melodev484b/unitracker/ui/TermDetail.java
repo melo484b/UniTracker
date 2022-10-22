@@ -45,8 +45,17 @@ public class TermDetail extends AppCompatActivity {
             startText.setText(start);
             endText.setText(end);
         }
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        recyclerViewRefresh();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        recyclerViewRefresh();
+    }
+
+    private void recyclerViewRefresh() {
         RecyclerView recyclerView = findViewById(R.id.course_detail_recycler);
         Repository repo = new Repository(getApplication());
         courses = repo.getmAllCoursesWithTermId(termId);

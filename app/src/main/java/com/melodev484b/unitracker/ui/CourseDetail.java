@@ -6,8 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +21,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Assessment;
+import com.melodev484b.unitracker.scheduler.UniTrackerReceiver;
+import com.melodev484b.unitracker.util.ChronoManager;
 
 import java.util.List;
 
@@ -24,6 +32,7 @@ public class CourseDetail extends AppCompatActivity {
     RecyclerView recyclerView;
     int courseId;
     String title, start, end, status, instructor, phone, email, note;
+    final String ALERT_MESSAGE = "Your course begins today!";
     Repository repo;
 
     @Override
@@ -61,6 +70,56 @@ public class CourseDetail extends AppCompatActivity {
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        recyclerViewRefresh();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        recyclerViewRefresh();
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_course_detail, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        switch(menuItem.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.set_course_reminder:
+                setReminder();
+                return true;
+            case R.id.share_course_note:
+                shareNote();
+                return true;
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
+
+    private void setReminder() {
+        Long trigger = ChronoManager.dateInMilliseconds(start);
+        Intent intent = new Intent(CourseDetail.this, UniTrackerReceiver.class);
+        intent.putExtra("key", ALERT_MESSAGE);
+        PendingIntent sender = PendingIntent.getBroadcast(CourseDetail.this,
+                MainActivity.getIncrementedAlertNumber(), intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+    }
+
+    private void shareNote() {
+        Intent sendNote = new Intent();
+        sendNote.setAction(Intent.ACTION_SEND);
+        sendNote.putExtra(Intent.EXTRA_TITLE, title);
+        sendNote.putExtra(Intent.EXTRA_TEXT, note);
+        sendNote.setType("text/plain");
+        Intent chooser = Intent.createChooser(sendNote, null);
+        startActivity(chooser);
+    }
+
+    private void recyclerViewRefresh() {
         recyclerView = findViewById(R.id.course_detail_recycler);
         Repository repo = new Repository(getApplication());
         List<Assessment> assessments = repo.getAllAssessmentsWithCourseId(courseId);
@@ -84,4 +143,5 @@ public class CourseDetail extends AppCompatActivity {
         intent.putExtra("course_id", courseId);
         startActivity(intent);
     }
+
 }

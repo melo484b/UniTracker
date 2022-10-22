@@ -39,4 +39,24 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="date_button_text">Select Date</string>
+    <string name="in_progress_radio">In Progress</string>
+    <string name="planned_radio">Planned</string>
+    <string name="dropped_radio">Dropped</string>
+    <string name="completed_radio">Completed</string>
+    <string name="performance_radio">Performance</string>
+    <string name="objective_radio">Objective</string>
+    <string name="title_string">Title</string>
+    <string name="delete_assessment_description">Delete assessment</string>
+    <string name="add_assessment_description">Add assessment</string>
+    <string name="delete_course_description">Delete course</string>
+    <string name="delete_term_description">Delete term</string>
+    <string name="add_course_description">Add course</string>
+    <string name="start_text">Start</string>
+    <string name="instructor_contact_information">Instructor Contact Information</string>
+    <string name="course_notes_hint">Course Notes</string>
+    <string name="channel_name">scheduler</string>
+    <string name="channel_description">Channel for UniTracker notifications.</string>
+    <string name="send_note_description">Send note</string>
+    <string name="menu_share_note">Share note</string>
+    <string name="menu_set_reminder">Set reminder</string>
 </resources>

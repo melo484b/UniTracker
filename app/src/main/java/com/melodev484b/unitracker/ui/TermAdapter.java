@@ -16,6 +16,11 @@ import com.melodev484b.unitracker.entity.Term;
 import java.util.List;
 
 public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder> {
+
+    private List<Term> mTerms;
+    private final Context context;
+    private final LayoutInflater mInflator;
+
     class TermViewHolder extends RecyclerView.ViewHolder {
         private final TextView termItemView;
         private TermViewHolder(View itemView) {
@@ -33,10 +38,6 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
             });
         }
     }
-
-    private List<Term> mTerms;
-    private final Context context;
-    private final LayoutInflater mInflator;
 
     public TermAdapter(Context context) {
         mInflator = LayoutInflater.from(context);

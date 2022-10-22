@@ -8,226 +8,151 @@
     tools:context=".ui.CourseDetail">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addAssessment"
+        android:id="@+id/add_assessment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/add_assessment_description"
         android:onClick="onAddAssessment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/deleteTerm"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <TextView
-        android:id="@+id/course_detail_title_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:layout_marginStart="4dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_start_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
         android:id="@+id/course_detail_end_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_status_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        android:layout_marginStart="8dp"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/end_label_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_start_label" />
-
-    <TextView
-        android:id="@+id/course_detail_status_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_instructor_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_end_label" />
-
-    <TextView
-        android:id="@+id/course_detail_instructor_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_phone_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_status_label" />
-
-    <TextView
-        android:id="@+id/course_detail_phone_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_email_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_instructor_label" />
-
-    <TextView
-        android:id="@+id/course_detail_email_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_note_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_phone_label" />
-
-    <TextView
-        android:id="@+id/course_detail_note_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/assessments_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_email_label" />
 
     <TextView
         android:id="@+id/course_detail_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_instructor"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/status_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_end" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_detail_end_label" />
 
     <TextView
         android:id="@+id/course_detail_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_start"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/title_string"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/course_detail_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_end"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/start_text"
+        app:layout_constraintBottom_toTopOf="@+id/course_detail_end_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.202"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_title" />
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toEndOf="@+id/course_detail_start_label"
+        app:layout_constraintTop_toTopOf="@+id/course_detail_start_label" />
 
     <TextView
         android:id="@+id/course_detail_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_status"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/term_end_hint"
+        app:layout_constraintBottom_toBottomOf="@+id/course_detail_end_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_start" />
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toEndOf="@+id/course_detail_end_label"
+        app:layout_constraintTop_toTopOf="@+id/course_detail_end_label" />
 
     <TextView
         android:id="@+id/course_detail_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_email"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/phone_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/course_detail_email"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_instructor" />
 
     <TextView
         android:id="@+id/course_detail_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_note"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/email_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.21"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_phone" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/course_detail_phone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/course_detail_phone" />
 
     <TextView
         android:id="@+id/course_detail_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/assessments_label"
+        android:layout_width="304dp"
+        android:layout_height="112dp"
+        android:background="#F6F6F6"
+        android:padding="@dimen/detail_view_padding"
+        android:shadowColor="#7A7A7A"
+        android:text="@string/course_notes_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_email" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_detail_phone" />
 
     <TextView
         android:id="@+id/course_detail_instructor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_phone"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/instructor_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/course_detail_status" />
 
     <TextView
         android:id="@+id/course_detail_start_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/detailed_margin"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/course_detail_end_label"
-        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        android:layout_marginStart="8dp"
+        android:padding="@dimen/detail_view_padding"
+        android:text="@string/start_label_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course_detail_title_label" />
+        app:layout_constraintTop_toBottomOf="@+id/course_detail_title" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/course_detail_recycler"
-        android:layout_width="380dp"
-        android:layout_height="292dp"
+        android:layout_width="373dp"
+        android:layout_height="162dp"
         android:padding="@dimen/recycler_margin"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="0.208">
+        app:layout_constraintTop_toBottomOf="@+id/assessments_label"
+        app:layout_constraintVertical_bias="0.0">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/deleteCourse"
+        android:id="@+id/delete_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:contentDescription="@string/delete_course_description"
         android:onClick="onDeleteCourse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -237,32 +162,17 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="332dp" />
-
     <TextView
         android:id="@+id/assessments_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="@string/assessments_label"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="90dp" />
+        app:layout_constraintTop_toBottomOf="@+id/course_detail_note" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

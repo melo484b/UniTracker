@@ -24,6 +24,16 @@ public class TermList extends AppCompatActivity {
         setContentView(R.layout.activity_term_list);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        recyclerViewRefresh();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        recyclerViewRefresh();
+    }
+
+    private void recyclerViewRefresh() {
         RecyclerView recyclerView = findViewById(R.id.term_recycler);
         Repository repo = new Repository(getApplication());
         List<Term> terms = repo.getmAllTerms();
@@ -47,7 +57,7 @@ public class TermList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onTermActionButton(View view) {
+    public void onAddTerm(View view) {
         Intent intent = new Intent(this, TermEdit.class);
         startActivity(intent);
     }

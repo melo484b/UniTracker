@@ -20,6 +20,11 @@ import java.util.List;
 
 
 public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.AssessmentViewHolder> {
+
+    private List<Assessment> mAssessments;
+    private final Context context;
+    private final LayoutInflater mInflator;
+
     class AssessmentViewHolder extends RecyclerView.ViewHolder {
         private final TextView assessmentItemView;
         private AssessmentViewHolder(View itemView) {
@@ -38,10 +43,6 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.As
             });
         }
     }
-
-    private List<Assessment> mAssessments;
-    private final Context context;
-    private final LayoutInflater mInflator;
 
     public AssessmentAdapter(Context context) {
         mInflator = LayoutInflater.from(context);
