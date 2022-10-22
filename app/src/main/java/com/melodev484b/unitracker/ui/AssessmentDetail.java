@@ -14,11 +14,9 @@ import android.widget.TextView;
 
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
-import com.melodev484b.unitracker.entity.Course;
+import com.melodev484b.unitracker.entity.Assessment;
 import com.melodev484b.unitracker.scheduler.UniTrackerReceiver;
 import com.melodev484b.unitracker.util.ChronoManager;
-
-import java.time.ZoneId;
 
 public class AssessmentDetail extends AppCompatActivity {
 
@@ -27,6 +25,7 @@ public class AssessmentDetail extends AppCompatActivity {
     String title, type, date;
     final String ALERT_MESSAGE = "Your assessment is scheduled for today!";
     Repository repo;
+    private boolean dataChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +47,22 @@ public class AssessmentDetail extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (dataChanged) {
+            dataRefresh();
+        }
+    }
+
+    private void dataRefresh() {
+        Assessment modifiedAssessment = repo.getAssessmentById(assessmentId);
+        titleText.setText(modifiedAssessment.getTitle());
+        typeText.setText(modifiedAssessment.getType());
+        dateText.setText(modifiedAssessment.getDate());
+        dataChanged = false;
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_assessment_detail, menu);
         return true;
@@ -67,11 +82,11 @@ public class AssessmentDetail extends AppCompatActivity {
     }
 
     private void setReminder() {
-        Long trigger = ChronoManager.dateInMilliseconds(date);
+        Long trigger = ChronoManager.toMilliseconds(date);
         Intent intent = new Intent(AssessmentDetail.this, UniTrackerReceiver.class);
         intent.putExtra("key", ALERT_MESSAGE);
         PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetail.this,
-                MainActivity.getIncrementedAlertNumber(), intent, 0);
+                MainActivity.getIncrementedAlertNumber(), intent, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
     }
@@ -80,9 +95,20 @@ public class AssessmentDetail extends AppCompatActivity {
 
         if (assessmentId != -1) {
             repo.deleteAssessment(assessmentId);
-            Intent intent = new Intent(this, AssessmentList.class);
+            Intent intent = new Intent(this, CourseList.class);
             startActivity(intent);
         }
 
+    }
+
+    public void onModifyAssessment(View view) {
+        dataChanged = true;
+        Intent intent = new Intent(this, AssessmentEdit.class);
+        intent.putExtra("assessment_id", assessmentId);
+        intent.putExtra("title", title);
+        intent.putExtra("type", type);
+        intent.putExtra("date", date);
+        intent.putExtra("course_id", courseId);
+        startActivity(intent);
     }
 }

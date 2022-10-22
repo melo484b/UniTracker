@@ -17,18 +17,17 @@ public class UniTrackerReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        createNotificationChannel(context, CHANNEL_ID);
+        createNotificationChannel(context);
         Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_calendar_art)
                 .setContentText(intent.getStringExtra("key"))
                 .setContentTitle("Reminder")
                 .build();
-
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(notificationID++, notification);
     }
 
-    private void createNotificationChannel(Context context, String CHANNEL_ID) {
+    private void createNotificationChannel(Context context) {
         CharSequence name = context.getResources().getString(R.string.channel_name);
         String description = context.getString(R.string.channel_description);
         int importance = NotificationManager.IMPORTANCE_DEFAULT;

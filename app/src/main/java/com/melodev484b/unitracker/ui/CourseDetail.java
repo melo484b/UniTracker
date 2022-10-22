@@ -1,6 +1,6 @@
 package com.melodev484b.unitracker.ui;
 
-import static android.widget.Toast.LENGTH_SHORT;
+import static android.widget.Toast.LENGTH_LONG;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,7 +11,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Assessment;
+import com.melodev484b.unitracker.entity.Course;
 import com.melodev484b.unitracker.scheduler.UniTrackerReceiver;
 import com.melodev484b.unitracker.util.ChronoManager;
 
@@ -30,10 +30,11 @@ public class CourseDetail extends AppCompatActivity {
 
     TextView titleText, startText, endText, statusText, instructorText, phoneText, emailText, noteText;
     RecyclerView recyclerView;
-    int courseId;
+    int courseId, termId;
     String title, start, end, status, instructor, phone, email, note;
     final String ALERT_MESSAGE = "Your course begins today!";
     Repository repo;
+    private boolean dataChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class CourseDetail extends AppCompatActivity {
         phone = getIntent().getStringExtra("phone");
         email = getIntent().getStringExtra("email");
         note = getIntent().getStringExtra("note");
+        termId = getIntent().getIntExtra("term_id", -1);
 
         if (courseId != -1) {
             titleText.setText(title);
@@ -77,6 +79,22 @@ public class CourseDetail extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         recyclerViewRefresh();
+        if (dataChanged) {
+            dataRefresh();
+        }
+    }
+
+    private void dataRefresh() {
+        Course modifiedCourse = repo.getCourseById(courseId);
+        titleText.setText(modifiedCourse.getTitle());
+        startText.setText(modifiedCourse.getStartDate());
+        endText.setText(modifiedCourse.getEndDate());
+        statusText.setText(modifiedCourse.getStatus());
+        instructorText.setText(modifiedCourse.getInstructor());
+        phoneText.setText(modifiedCourse.getInstructorPhone());
+        emailText.setText(modifiedCourse.getInstructorEmail());
+        noteText.setText(modifiedCourse.getNote());
+        dataChanged = false;
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -100,13 +118,15 @@ public class CourseDetail extends AppCompatActivity {
     }
 
     private void setReminder() {
-        Long trigger = ChronoManager.dateInMilliseconds(start);
+        Long trigger = ChronoManager.toMilliseconds(start);
         Intent intent = new Intent(CourseDetail.this, UniTrackerReceiver.class);
         intent.putExtra("key", ALERT_MESSAGE);
         PendingIntent sender = PendingIntent.getBroadcast(CourseDetail.this,
-                MainActivity.getIncrementedAlertNumber(), intent, 0);
+                MainActivity.getIncrementedAlertNumber(), intent, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+        Snackbar message = Snackbar.make(findViewById(android.R.id.content).getRootView(), "Reminder scheduled for " + trigger, LENGTH_LONG);
+        message.show();
     }
 
     private void shareNote() {
@@ -130,10 +150,9 @@ public class CourseDetail extends AppCompatActivity {
     }
 
     public void onDeleteCourse(View view) {
-        Snackbar message = Snackbar.make(view, "", LENGTH_SHORT);
         if (courseId != -1) {
             repo.deleteCourse(courseId);
-            Intent intent = new Intent(this, CourseList.class);
+            Intent intent = new Intent(this, TermList.class);
             startActivity(intent);
         }
     }
@@ -144,4 +163,19 @@ public class CourseDetail extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onModifyCourse(View view) {
+        dataChanged = true;
+        Intent intent = new Intent(this, CourseEdit.class);
+        intent.putExtra("course_id", courseId);
+        intent.putExtra("title", title);
+        intent.putExtra("start", start);
+        intent.putExtra("end", end);
+        intent.putExtra("status", status);
+        intent.putExtra("instructor", instructor);
+        intent.putExtra("phone", phone);
+        intent.putExtra("email", email);
+        intent.putExtra("note", note);
+        intent.putExtra("term_id", termId);
+        startActivity(intent);
+    }
 }

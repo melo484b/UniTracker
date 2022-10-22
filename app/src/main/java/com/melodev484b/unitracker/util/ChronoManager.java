@@ -2,7 +2,10 @@ package com.melodev484b.unitracker.util;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.util.Log;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -11,6 +14,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 
 public abstract class ChronoManager {
     static DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
@@ -25,11 +29,18 @@ public abstract class ChronoManager {
         return (LocalTime) timeFormat.parse(time);
     }
 
-    public static Long dateInMilliseconds(String date) {
-        LocalDate futureDate = (LocalDate) dateFormat.parse(date);
-        LocalTime currentTime = LocalTime.parse(timeFormat.format(LocalTime.now()));
-        LocalDateTime futureDateWithCurrentTime = LocalDateTime.of(futureDate, currentTime);
-        return futureDateWithCurrentTime.toInstant(ZoneOffset.UTC).toEpochMilli();
+    public static Long toMilliseconds(String date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyy");
+        Date reminderDate = null;
+        try {
+            reminderDate = simpleDateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (reminderDate != null) {
+            return reminderDate.getTime();
+        }
+        return (long) -1;
     }
 
     public static String toString(LocalDateTime dateTime) {

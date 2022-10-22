@@ -17,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Course;
+import com.melodev484b.unitracker.entity.Term;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class TermDetail extends AppCompatActivity {
     Repository repo;
     List<Course> courses;
     final String FAILURE_MESSAGE = "Remove related courses first!";
+    private boolean dataChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,17 @@ public class TermDetail extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         recyclerViewRefresh();
+        if (dataChanged) {
+            dataRefresh();
+        }
+    }
+
+    private void dataRefresh() {
+        Term modifiedTerm = repo.getTermById(termId);
+        titleText.setText(modifiedTerm.getTitle());
+        startText.setText(modifiedTerm.getStartDate());
+        endText.setText(modifiedTerm.getEndDate());
+        dataChanged = false;
     }
 
     private void recyclerViewRefresh() {
@@ -96,6 +109,16 @@ public class TermDetail extends AppCompatActivity {
     public void onAddCourse(View view) {
         Intent intent = new Intent(this, CourseEdit.class);
         intent.putExtra("term_id", termId);
+        startActivity(intent);
+    }
+
+    public void onModifyTerm(View view) {
+        dataChanged = true;
+        Intent intent = new Intent(this, TermEdit.class);
+        intent.putExtra("term_id", termId);
+        intent.putExtra("title", title);
+        intent.putExtra("start", start);
+        intent.putExtra("end", end);
         startActivity(intent);
     }
 }

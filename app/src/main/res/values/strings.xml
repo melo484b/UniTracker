@@ -59,4 +59,8 @@
     <string name="send_note_description">Send note</string>
     <string name="menu_share_note">Share note</string>
     <string name="menu_set_reminder">Set reminder</string>
+    <string name="logo_description">Calendar</string>
+    <string name="modify_term_description">Modify term</string>
+    <string name="modify_assessment_description">Modify assessment</string>
+    <string name="modify_course_description">Modify course</string>
 </resources>

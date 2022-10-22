@@ -8,6 +8,20 @@
     tools:context=".ui.CourseDetail">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/modify_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:contentDescription="@string/modify_course_description"
+        android:onClick="onModifyCourse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_assessment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +40,7 @@
         android:id="@+id/course_detail_end_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="112dp"
         android:padding="@dimen/detail_view_padding"
         android:text="@string/end_label_text"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,9 +74,10 @@
         android:text="@string/start_text"
         app:layout_constraintBottom_toTopOf="@+id/course_detail_end_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toEndOf="@+id/course_detail_start_label"
-        app:layout_constraintTop_toTopOf="@+id/course_detail_start_label" />
+        app:layout_constraintTop_toTopOf="@+id/course_detail_start_label"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/course_detail_end"
@@ -72,9 +87,10 @@
         android:text="@string/term_end_hint"
         app:layout_constraintBottom_toBottomOf="@+id/course_detail_end_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toEndOf="@+id/course_detail_end_label"
-        app:layout_constraintTop_toTopOf="@+id/course_detail_end_label" />
+        app:layout_constraintTop_toTopOf="@+id/course_detail_end_label"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/course_detail_phone"
@@ -127,7 +143,7 @@
         android:id="@+id/course_detail_start_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="112dp"
         android:padding="@dimen/detail_view_padding"
         android:text="@string/start_label_text"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,6 +173,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"

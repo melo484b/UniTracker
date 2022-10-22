@@ -46,9 +46,4 @@ public class CourseList extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void onCourseActionButton(View view) {
-        Intent intent = new Intent(this, CourseEdit.class);
-        startActivity(intent);
-    }
 }
