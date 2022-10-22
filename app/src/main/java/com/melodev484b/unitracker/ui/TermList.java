@@ -14,6 +14,7 @@ import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Term;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TermList extends AppCompatActivity {
@@ -36,7 +37,7 @@ public class TermList extends AppCompatActivity {
     private void recyclerViewRefresh() {
         RecyclerView recyclerView = findViewById(R.id.term_recycler);
         Repository repo = new Repository(getApplication());
-        List<Term> terms = repo.getmAllTerms();
+        ArrayList<Term> terms = (ArrayList<Term>) repo.getmAllTerms();
         final TermAdapter adapter = new TermAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

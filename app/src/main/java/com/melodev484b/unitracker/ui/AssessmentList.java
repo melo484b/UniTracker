@@ -14,6 +14,7 @@ import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Assessment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AssessmentList extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class AssessmentList extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         RecyclerView recyclerView = findViewById(R.id.assessment_recycler);
         Repository repo = new Repository(getApplication());
-        List<Assessment> assessments = repo.getmAllAssessments();
+        ArrayList<Assessment> assessments = (ArrayList<Assessment>) repo.getmAllAssessments();
         final AssessmentAdapter adapter = new AssessmentAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

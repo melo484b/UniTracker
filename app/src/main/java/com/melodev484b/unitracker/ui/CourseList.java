@@ -14,6 +14,7 @@ import com.melodev484b.unitracker.R;
 import com.melodev484b.unitracker.db.Repository;
 import com.melodev484b.unitracker.entity.Course;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseList extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class CourseList extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         RecyclerView recyclerView = findViewById(R.id.course_recycler);
         Repository repo = new Repository(getApplication());
-        List<Course> courses = repo.getmAllCourses();
+        ArrayList<Course> courses = (ArrayList<Course>) repo.getmAllCourses();
         final CourseAdapter adapter = new CourseAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
