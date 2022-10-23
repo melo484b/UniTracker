@@ -14,15 +14,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Repository {
-    // DAO
     private AssessmentDao mAssessmentDao;
     private CourseDao mCourseDao;
     private TermDao mTermDao;
-    // Lists
     private List<Assessment> mAllAssessments;
     private List<Course> mAllCourses;
     private List<Term> mAllTerms;
-    // Objects
     private Assessment mAssessment;
     private Course mCourse;
     private Term mTerm;
@@ -37,7 +34,6 @@ public class Repository {
         mTermDao = db.termDao();
     }
 
-    // Assessment
     public void insert(Assessment assessment) {
         databaseExecutor.execute(() -> {
             mAssessmentDao.insert(assessment);
@@ -119,7 +115,6 @@ public class Repository {
         return mAllAssessments.isEmpty();
     }
 
-    // Course
     public void insert(Course course) {
         databaseExecutor.execute(() -> {
             mCourseDao.insert(course);
@@ -200,7 +195,6 @@ public class Repository {
         return mAllCourses.isEmpty();
     }
 
-    // Term
     public void insert(Term term) {
         databaseExecutor.execute(() -> {
             mTermDao.insert(term);

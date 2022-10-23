@@ -8,10 +8,8 @@ public class Assessment {
     @PrimaryKey(autoGenerate = true)
     private int assessmentId;
     private String title;
-    // Assessments may be "Performance" or "Objective"
     private String type;
     private String date;
-    // ID of the associated Course
     private int courseId;
 
     public Assessment() {

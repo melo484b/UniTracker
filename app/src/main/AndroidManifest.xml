@@ -21,29 +21,34 @@
 
         <activity
             android:name=".ui.TermEdit"
+            android:label="Term Data Entry"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.CourseEdit"
+            android:label="Course Data Entry"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.AssessmentEdit"
+            android:label="Assessment Data Entry"
             android:exported="false" />
         <activity
             android:name=".ui.TermList"
-            android:exported="false"
-            android:label="Terms" />
+            android:label="Terms"
+            android:exported="false" />
         <activity
             android:name=".ui.CourseList"
+            android:label="Courses"
             android:exported="false" />
         <activity
             android:name=".ui.AssessmentList"
+            android:label="Assessments"
             android:exported="false" />
         <activity
             android:name=".ui.TermDetail"
-            android:exported="false"
-            android:label="Term Details" />
+            android:label="Term Details"
+            android:exported="false" />
         <activity
             android:name=".ui.CourseDetail"
             android:exported="false"

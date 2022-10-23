@@ -10,13 +10,11 @@ public class Course {
     String title;
     String startDate;
     String endDate;
-    // Courses may be "In progress", "Completed", "Dropped", or "Planned"
     String status;
     String instructor;
     String instructorPhone;
     String instructorEmail;
     String note;
-    // ID of the associated term
     int termId;
 
     public Course() {
