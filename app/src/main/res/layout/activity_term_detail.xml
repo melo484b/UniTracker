@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/detail_view_padding"
+    android:background="@color/background_color"
     tools:context=".ui.TermDetail">
 
     <TextView
