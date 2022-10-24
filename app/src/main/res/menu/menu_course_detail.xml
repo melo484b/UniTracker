@@ -7,7 +7,11 @@
         android:orderInCategory="100"
         android:title="@string/menu_share_note" />
     <item
-        android:id="@+id/set_course_reminder"
+        android:id="@+id/set_course_start_alert"
         android:orderInCategory="100"
-        android:title="@string/menu_set_reminder" />
+        android:title="@string/set_alert_start_text" />
+    <item
+        android:id="@+id/set_course_end_alert"
+        android:orderInCategory="100"
+        android:title="@string/set_alert_end_text" />
 </menu>

@@ -9,17 +9,19 @@ public class Assessment {
     private int assessmentId;
     private String title;
     private String type;
-    private String date;
+    private String start;
+    private String end;
     private int courseId;
 
     public Assessment() {
     }
 
-    public Assessment(int assessmentId, String title, String type, String date, int courseId) {
+    public Assessment(int assessmentId, String title, String type, String start, String end, int courseId) {
         this.assessmentId = assessmentId;
         this.title = title;
         this.type = type;
-        this.date = date;
+        this.start = start;
+        this.end = end;
         this.courseId = courseId;
     }
 
@@ -29,7 +31,8 @@ public class Assessment {
                 "assessmentId=" + assessmentId +
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +
-                ", date='" + date + '\'' +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
                 ", courseId=" + courseId +
                 '}';
     }
@@ -58,12 +61,20 @@ public class Assessment {
         this.type = type;
     }
 
-    public String getDate() {
-        return date;
+    public String getStart() {
+        return start;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
     }
 
     public int getCourseId() {

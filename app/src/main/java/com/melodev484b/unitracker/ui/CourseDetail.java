@@ -32,9 +32,10 @@ public class CourseDetail extends AppCompatActivity {
     RecyclerView recyclerView;
     int courseId, termId;
     String title, start, end, status, instructor, phone, email, note;
-    final String ALERT_MESSAGE = "Your course begins today!";
+    final String ALERT_START_MESSAGE = "Your course begins today!";
+    final String ALERT_END_MESSAGE = "Your course ends today!";
     Repository repo;
-    private boolean dataChanged = false;
+    private boolean dataChanged = false, alertStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,8 +108,13 @@ public class CourseDetail extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
-            case R.id.set_course_reminder:
-                setReminder();
+            case R.id.set_course_start_alert:
+                alertStart = true;
+                setReminder(start);
+                return true;
+            case R.id.set_course_end_alert:
+                alertStart = false;
+                setReminder(end);
                 return true;
             case R.id.share_course_note:
                 shareNote();
@@ -117,16 +123,15 @@ public class CourseDetail extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    private void setReminder() {
-        Long trigger = ChronoManager.toMilliseconds(start);
+    private void setReminder(String date) {
+        Long trigger = ChronoManager.toMilliseconds(date);
         Intent intent = new Intent(CourseDetail.this, UniTrackerReceiver.class);
-        intent.putExtra("key", ALERT_MESSAGE);
+        String message = alertStart ? ALERT_START_MESSAGE : ALERT_END_MESSAGE;
+        intent.putExtra("key", message);
         PendingIntent sender = PendingIntent.getBroadcast(CourseDetail.this,
                 MainActivity.getIncrementedAlertNumber(), intent, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
-        Snackbar message = Snackbar.make(findViewById(android.R.id.content).getRootView(), "Reminder scheduled for " + trigger, LENGTH_LONG);
-        message.show();
     }
 
     private void shareNote() {

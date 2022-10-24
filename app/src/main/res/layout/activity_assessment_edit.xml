@@ -9,50 +9,29 @@
 
 
     <TextView
-        android:id="@+id/assessment_edit_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/date_hint"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:padding="@dimen/edit_padding"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/assessment_date_select"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
-
-    <TextView
         android:id="@+id/assessment_edit_type_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="28dp"
         android:padding="@dimen/edit_padding"
         android:text="@string/type_label"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.406"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title_label"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title_label" />
 
     <TextView
         android:id="@+id/assessment_edit_title_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="60dp"
         android:padding="@dimen/edit_padding"
         android:text="@string/title_label"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,16 +39,16 @@
         android:id="@+id/assessment_edit_title"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="@string/title_hint"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="@dimen/edit_padding"
+        app:layout_constraintBottom_toBottomOf="@+id/assessment_edit_title_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_title_label"
+        app:layout_constraintTop_toTopOf="@+id/assessment_edit_title_label"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/save_assessment"
@@ -86,48 +65,80 @@
         app:layout_constraintVertical_bias="0.976"
         app:srcCompat="@android:drawable/ic_menu_save" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
+    <TextView
+        android:id="@+id/assessment_edit_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="96dp" />
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/start_text"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/edit_padding"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/assessment_start_select"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_type_label" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
+    <TextView
+        android:id="@+id/assessment_edit_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="302dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="372dp" />
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/end_text"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="@dimen/edit_padding"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/assessment_end_select"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_start"
+        app:layout_constraintVertical_bias="0.052" />
 
     <Button
-        android:id="@+id/assessment_date_select"
+        android:id="@+id/assessment_start_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onSelectDate"
+        android:onClick="onSelectStart"
         android:text="@string/date_button_text"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintBottom_toBottomOf="@+id/assessment_edit_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/assessment_edit_date"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_start" />
+
+    <Button
+        android:id="@+id/assessment_end_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSelectEnd"
+        android:text="@string/date_button_text"
+        app:layout_constraintBottom_toBottomOf="@+id/assessment_edit_end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_end"
+        app:layout_constraintTop_toTopOf="@+id/assessment_edit_end"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RadioGroup
         android:id="@+id/assessment_type_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintBottom_toBottomOf="@+id/assessment_edit_type_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/assessment_edit_title">
+        app:layout_constraintStart_toEndOf="@+id/assessment_edit_type_label"
+        app:layout_constraintTop_toTopOf="@+id/assessment_edit_type_label">
 
         <RadioButton
             android:id="@+id/assessment_edit_performance_radio"

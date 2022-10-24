@@ -20,12 +20,13 @@ import com.melodev484b.unitracker.util.ChronoManager;
 
 public class AssessmentDetail extends AppCompatActivity {
 
-    TextView titleText, typeText, dateText;
+    TextView titleText, typeText, startText, endText;
     int assessmentId, courseId;
-    String title, type, date;
-    final String ALERT_MESSAGE = "Your assessment is scheduled for today!";
+    String title, type, start, end;
+    final String ALERT_START_MESSAGE = "Your assessment begins today!";
+    final String ALERT_END_MESSAGE = "Your assessment ends today!";
     Repository repo;
-    private boolean dataChanged = false;
+    private boolean dataChanged = false, alertStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +35,19 @@ public class AssessmentDetail extends AppCompatActivity {
         repo = new Repository(getApplication());
         titleText = findViewById(R.id.assessment_detail_title);
         typeText = findViewById(R.id.assessment_detail_type);
-        dateText = findViewById(R.id.assessment_detail_date);
+        startText = findViewById(R.id.assessment_detail_start);
+        endText = findViewById(R.id.assessment_detail_end);
         assessmentId = getIntent().getIntExtra("assessment_id", -1);
         title = getIntent().getStringExtra("title");
         type = getIntent().getStringExtra("type");
-        date = getIntent().getStringExtra("date");
+        start = getIntent().getStringExtra("start");
+        end = getIntent().getStringExtra("end");
         courseId = getIntent().getIntExtra("course_id", -1);
         if (assessmentId != -1) {
             titleText.setText(title);
             typeText.setText(type);
-            dateText.setText(date);
+            startText.setText(start);
+            endText.setText(end);
         }
     }
 
@@ -59,7 +63,8 @@ public class AssessmentDetail extends AppCompatActivity {
         Assessment modifiedAssessment = repo.getAssessmentById(assessmentId);
         titleText.setText(modifiedAssessment.getTitle());
         typeText.setText(modifiedAssessment.getType());
-        dateText.setText(modifiedAssessment.getDate());
+        startText.setText(modifiedAssessment.getStart());
+        endText.setText(modifiedAssessment.getEnd());
         dataChanged = false;
     }
 
@@ -73,18 +78,24 @@ public class AssessmentDetail extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
-            case R.id.set_assessment_reminder:
-                setReminder();
+            case R.id.set_assessment_start_alert:
+                alertStart = true;
+                setReminder(start);
+                return true;
+            case R.id.set_assessment_end_alert:
+                alertStart = false;
+                setReminder(end);
                 return true;
 
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void setReminder() {
+    private void setReminder(String date) {
         Long trigger = ChronoManager.toMilliseconds(date);
         Intent intent = new Intent(AssessmentDetail.this, UniTrackerReceiver.class);
-        intent.putExtra("key", ALERT_MESSAGE);
+        String message = alertStart ? ALERT_START_MESSAGE : ALERT_END_MESSAGE;
+        intent.putExtra("key", message);
         PendingIntent sender = PendingIntent.getBroadcast(AssessmentDetail.this,
                 MainActivity.getIncrementedAlertNumber(), intent, PendingIntent.FLAG_IMMUTABLE);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -107,7 +118,8 @@ public class AssessmentDetail extends AppCompatActivity {
         intent.putExtra("assessment_id", assessmentId);
         intent.putExtra("title", title);
         intent.putExtra("type", type);
-        intent.putExtra("date", date);
+        intent.putExtra("start", start);
+        intent.putExtra("end", end);
         intent.putExtra("course_id", courseId);
         startActivity(intent);
     }

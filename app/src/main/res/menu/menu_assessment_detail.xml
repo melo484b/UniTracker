@@ -3,7 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/set_assessment_reminder"
+        android:id="@+id/set_assessment_start_alert"
         android:orderInCategory="100"
-        android:title="@string/menu_set_reminder" />
+        android:title="@string/set_alert_start_text" />
+    <item
+        android:id="@+id/set_assessment_end_alert"
+        android:orderInCategory="100"
+        android:title="@string/set_alert_end_text" />
 </menu>

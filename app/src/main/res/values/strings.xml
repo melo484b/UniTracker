@@ -62,4 +62,8 @@
     <string name="modify_term_description">Modify term</string>
     <string name="modify_assessment_description">Modify assessment</string>
     <string name="modify_course_description">Modify course</string>
+    <string name="start_hint">Start</string>
+    <string name="end_text">End</string>
+    <string name="set_alert_start_text">Set alert for start date</string>
+    <string name="set_alert_end_text">Set alert for end date</string>
 </resources>

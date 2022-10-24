@@ -13,7 +13,7 @@ import com.melodev484b.unitracker.entity.Assessment;
 import com.melodev484b.unitracker.entity.Course;
 import com.melodev484b.unitracker.entity.Term;
 
-@Database(entities = {Assessment.class, Course.class, Term.class}, version = 1, exportSchema = false)
+@Database(entities = {Assessment.class, Course.class, Term.class}, version = 2, exportSchema = false)
 public abstract class UniTrackerDatabaseBuilder extends RoomDatabase {
     public abstract AssessmentDao assessmentDao();
     public abstract CourseDao courseDao();
